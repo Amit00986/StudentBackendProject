@@ -25,7 +25,41 @@ const saveImageUrltoDb = async (studentId, uploadImg) => {
     };
 };
 
+const getStudentDetails = async (studentId) => {
+    try {
+        const data = await studentModel.find({ studentId: studentId }).populate('address');
+        return data;
+    } catch (error) {
+        console.error('Error in service save profile In Db:', error);
+        throw error;
+    };
+};
+
+const updateProfile = async (studentId, updateData) => {
+    try {
+        const data = await studentModel.findOneAndUpdate({ studentId: studentId }, updateData, { new: true });
+        return data;
+    } catch (error) {
+        console.error('Error in service update student profile In Db:', error);
+        throw error;
+    }
+};
+
+const getAllStudent = async () => {
+    try {
+        const data = await studentModel.find();
+        return data;
+    } catch (error) {
+        console.error('Error in service update student profile In Db:', error);
+        throw error;
+    }
+};
+
+
 module.exports = {
     createProfile,
+    getAllStudent,
+    updateProfile,
+    getStudentDetails,
     saveImageUrltoDb
 };

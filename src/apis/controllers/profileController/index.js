@@ -81,8 +81,75 @@ const uploadProfileImg = async (req, res) => {
     }
 };
 
+const getStudentDetails = async (req, res) => {
+    try {
+        const studentId = req.params.studentId;
+
+        const data = await profileServcie.getStudentDetails(studentId);
+        
+        if (data) {
+            res.status(200).json({
+                success: true,
+                data: data
+            });
+        } else {
+            res.status(403).json({
+                success: false,
+                error: "Error while Getting profile"
+            });
+        }
+    } catch (error) {
+        console.error('Error uploading profile to AWS:', error);
+        res.status(500).json({ success: false, error: 'Internal server error' });
+    }
+};
+
+const updateProfile = async (req, res) => {
+    try {
+        const studentId = req.params.studentId;
+        const updateData = req.body;
+        const data = await profileServcie.updateProfile(studentId, updateData);
+        if (data) {
+            res.status(200).json({
+                success: true,
+                data: data
+            });
+        } else {
+            res.status(404).json({
+                success: false,
+                error: "Error while Getting profile"
+            });
+        };
+    } catch (error) {
+        console.error('Error uploading profile update Profile:', error);
+        res.status(500).json({ success: false, error: 'Internal server error' });
+    }
+};
+
+const getAllStudent = async (req, res) => {
+    try {
+        const data = await profileServcie.getAllStudent();
+        if (data) {
+            res.status(200).json({
+                success: true,
+                data: data
+            });
+        } else {
+            res.status(404).json({
+                success: false,
+                error: "Error while Getting profile"
+            });
+        };
+    } catch (error) {
+        console.error('Error uploading profile to AWS:', error);
+        res.status(500).json({ success: false, error: 'Internal server error' });
+    }
+};
 
 module.exports = {
     createProfile,
+    getStudentDetails,
+    updateProfile,
+    getAllStudent,
     uploadProfileImg,
 }
