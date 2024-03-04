@@ -1,0 +1,57 @@
+PROBLEM STATEMENT
+we have make a route controllers and services for student to complete their profile and keep all their details in our database.
+
+In Addition to we use aws s3 to upload their profile picture for that we Create one post api in which contnent is image that can upload image on aws s3 and put the url in our db in student schema.
+
+after that we make separtae collection for address for that we put address on the basis of studentId. every address is associated with studentId. we make sure that no any duplicacy in our address.
+
+
+Folder Structure:
+First of all we make in our project is one entry point that fileName is index.js
+Model.
+
+DbConnection
+
+common-> in this we use that type of code which we use every api function 
+Route =>
+controllers =>
+services => 
+
+
+we Install npm(node packages manager)-> Basically npm is collection of packages in this there are lots of predifned function so that we can use in our project.
+some popular packages are: express(For server Creation), mongoose(for db connection),
+nodemon(to restart sever again and again);
+
+WE use here MVC Folder Structure:
+MVC:-> MVC is a software architecture pattern that separates an application into three interconnected components: the Model, the View, and the Controller.
+
+M-> MODEL: The Model is responsible for managing the application's data and business logic. It interacts with the database or any other data source to perform operations such as inserting, updating, deleting, and retrieving data.
+
+V-> VIEW: The View is responsible for presenting data to the user. It generates the HTML, CSS, and JavaScript that make up the user interface. The View can also receive user input and send it to the Controller for processing.
+
+C->CONTROLLER: The Controller is responsible for receiving requests from the View, processing them, and updating the Model accordingly. It acts as an intermediary between the Model and the View, ensuring that both components remain decoupled.
+
+
+
+
++-------------------+     +------------------------+     +------------------+
+|      Router       | --> |       Controller       | --> |      Service     |
+|                   |     |                        |     |                  |
+| - Handles         |     | - Takes input from      |     | - Contains      |
+|   incoming        |     |   the Controller and    |     |   business      |
+|   requests        |     |   communicates with the |     |   logic         |
+| - Directs         |     |   Service               |     | - Interacts     |
+|   traffic to      |     | - Interacts with the    |     |   with data     |
+|   appropriate     |     |   Model (Database)      |     |   sources       |
+|   Controller      |     | - Sends responses back  |     | - Performs CRUD |
+|                   |     |   to the Router         |     |   operations    |
++-------------------+     +------------------------+     +------------------+
+
+
+Router: Handles incoming requests, directs traffic to the appropriate controller based on the request URL, and manages overall application routing.
+
+Controller: Takes input from the router, communicates with the service layer to fetch or update data, and sends responses back to the router.
+
+Service: Contains the business logic of the application, interacts with data sources (e.g., databases), and performs CRUD (Create, Read, Update, Delete) operations.
+
+
