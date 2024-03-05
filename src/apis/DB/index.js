@@ -8,7 +8,7 @@ const DbConnect = async () => {
         console.log('Mongodb SuccessFully Connected ')
     } catch (error) {
         console.error('Error connecting to MongoDB:', error.message);
-    }
-}
+    };
+};
 
 module.exports = DbConnect;

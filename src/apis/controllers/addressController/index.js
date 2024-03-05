@@ -40,7 +40,7 @@ const getAddressDetails = async(req, res) => {
     } catch (error) {
         
     }
-}
+};
 
 module.exports = {
     getAddressDetails,
