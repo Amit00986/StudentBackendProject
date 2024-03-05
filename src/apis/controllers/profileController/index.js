@@ -86,7 +86,7 @@ const getStudentDetails = async (req, res) => {
         const studentId = req.params.studentId;
 
         const data = await profileServcie.getStudentDetails(studentId);
-        
+
         if (data) {
             res.status(200).json({
                 success: true,

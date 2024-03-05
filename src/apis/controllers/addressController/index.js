@@ -22,7 +22,7 @@ const createAddress = async (req, res) => {
     };
 };
 
-const getAddressDetails = async(req, res) => {
+const getAddressDetails = async (req, res) => {
     try {
         const studentId = req.params.studentId;
         const data = await AddressService.getAddressDetails(studentId);
@@ -38,7 +38,7 @@ const getAddressDetails = async(req, res) => {
             });
         };
     } catch (error) {
-        
+
     }
 };
 
