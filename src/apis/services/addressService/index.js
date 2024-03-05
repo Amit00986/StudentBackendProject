@@ -28,6 +28,16 @@ const createAddressByStudentId = async (studentId, addressData) => {
     };
 };
 
+const getAddressDetails = async (studentId) => {
+    try {
+        const data = await AddressModel.find({ studentId: studentId });
+        return data;
+    } catch (error) {
+        throw new Error('Failed to get Address Details');
+    }
+};
+
 module.exports = {
-    createAddressByStudentId
+    createAddressByStudentId,
+    getAddressDetails
 }
