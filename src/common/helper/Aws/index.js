@@ -1,13 +1,13 @@
 require('dotenv').config();
 const AWS = require('aws-sdk');
 
-AWS.config.update({
-    credentials: {
-        accessKeyId: 'AKIAUF5KJOUGMTYJRIAU',
-        secretAccessKey: '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',
-    },
-    region: 'us-east-1',
-});
+// AWS.config.update({
+//     credentials: {
+//         accessKeyId: 'AKIAUF5KJOUGMTYJRIAU',
+//         secretAccessKey: '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',
+//     },
+//     region: 'us-east-1',
+// });
 
 const s3 = new AWS.S3();
 const AWS_BUCKET_NAME = 'profileimage1';
